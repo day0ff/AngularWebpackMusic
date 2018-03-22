@@ -1,0 +1,56 @@
+<hr/>
+<div *ngIf="song; else notFound">
+  <h3 *ngIf="song.songId==null">{{'Songs.Details.CreateNewSong' | translate}}</h3>
+  <h2>
+    <span>{{'Songs.Details.Song' | translate}}&nbsp;:</span><br/>
+    {{song.songName}}&nbsp;
+    <span>{{'Songs.Details.Details' | translate}}</span>
+    <app-delete-modal *ngIf="song.songId!=null" [kind]="'song'" [name]="song.songName" (eventEmitter)="deleteSong()"
+                      class="delete">
+    </app-delete-modal>
+  </h2>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">id :</span>
+    </div>
+    <input type="text" class="form-control" id="songId" [(ngModel)]="song.songId" placeholder="id" disabled>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">name :</span>
+    </div>
+    <input type="text" class="form-control" id="songName" [(ngModel)]="song.songName" placeholder="name">
+    <div class="input-group-append">
+      <app-update-modal *ngIf="song.songId!=null" [kind]="'song'" [name]="song.songName"
+                        (eventEmitter)="updateSong()"></app-update-modal>
+      <app-save-modal *ngIf="song.songId==null" [kind]="'song'" [name]="song.songName"
+                      (eventEmitter)="saveSong()"></app-save-modal>
+    </div>
+  </div>
+
+  <h3>
+    <span>{{'Persons.Details.Person' | translate}}&nbsp;:</span>
+    <a *ngIf="song.person" href="persons/detail/{{song.person.personId}}">{{song.person.firstName}}&nbsp;{{song.person.lastName}}</a>
+    &nbsp;<!--span>{{'Persons.Details.Details' | translate}}</span-->
+
+    <!--div class="dropdown" *ngIf="song.person.personId==null">
+      <button class="btn  btn-outline-secondary dropdown-toggle" type="button" id="personsMenu" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        {{'Persons.Title' | translate}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="personsMenu">
+        <button *ngFor="let person of persons" class="dropdown-item celLength">
+          {{person.firstName}}&nbsp;{{person.lastName}}
+        </button>
+      </div>
+    </div-->
+  </h3>
+  <hr/>
+
+</div>
+<ng-template #notFound>
+  <h2>{{'Songs.NotFound' | translate}}</h2>
+</ng-template>
+<button class="btn btn-outline-secondary celLength" type="button" (click)="goBack()">
+  {{'Songs.Details.BtnBack' | translate}}
+</button>

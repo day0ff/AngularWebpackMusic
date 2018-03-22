@@ -1,0 +1,11 @@
+# IDEs
+/.idea
+
+# compiled output
+/dist
+
+# dependencies
+/node_modules
+
+# generated file
+package-lock.json

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="container">
+    <h3><a class="nav-link" routerLink="/songs">{{'Home.Songs' | translate}}</a></h3>
+    <div class="row">
+      <div *ngFor="let song of songs" class="col">
+        <a routerLink="/songs/detail/{{song.songId}}">
+          <h4 class="headphones">{{song.songName}}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h3><a class="nav-link" routerLink="/persons">{{'Home.Persons' | translate}}</a></h3>
+    <div class="row">
+      <div *ngFor="let person of persons" class="col">
+        <a routerLink="/passports/detail/{{person.personId}}">
+          <h4 class="micro">{{person.firstName}}&nbsp;{{person.lastName}}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h3><a class="nav-link" routerLink="/albums">{{'Home.Albums' | translate}}</a></h3>
+    <div class="row">
+      <div *ngFor="let album of albums" class="col">
+        <a routerLink="/albums/detail/{{album.albumId}}">
+          <h4 class="disc">{{album.albumName}}&nbsp;{{album.albumPrice}}$</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

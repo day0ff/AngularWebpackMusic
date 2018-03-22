@@ -1,0 +1,53 @@
+<hr/>
+<div *ngIf="album; else notFound">
+  <h3 *ngIf="album.albumId==null">{{'Albums.Details.CreateNewAlbum' | translate}}</h3>
+  <h2>
+    <span>{{'Albums.Details.Album' | translate}}&nbsp;:</span><br/>
+    {{album.albumName}}
+    <span>{{'Albums.Details.Details' | translate}}</span>
+    <app-delete-modal *ngIf="album.albumId!=null" [kind]="'album'" [name]="album.albumName +' ' + album.albumPrice"
+                      (eventEmitter)="deleteAlbum()" class="delete">
+    </app-delete-modal>
+  </h2>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">id :</span>
+    </div>
+    <input type="text" class="form-control" id="id" [(ngModel)]="album.albumId" placeholder="id" disabled>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">{{'Albums.Details.AlbumName' | translate}} :</span>
+    </div>
+    <input *ngIf="album.albumId==null" type="text" class="form-control" id="albumName" [(ngModel)]="album.albumName" placeholder="Title">
+    <input *ngIf="album.albumId!=null" type="text" class="form-control" id="albumName" [(ngModel)]="album.albumName" placeholder="Title" disabled>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">{{'Albums.Details.AlbumPrice' | translate}} :</span>
+    </div>
+    <input type="text" class="form-control" id="albumPrice" [(ngModel)]="album.albumPrice" placeholder="0">
+    <div class="input-group-append">
+      <app-update-modal *ngIf="album.albumId!=null" [kind]="'album'" [name]="album.albumName +' ' + album.albumPrice"
+                        (eventEmitter)="updateAlbum()"></app-update-modal>
+      <app-save-modal *ngIf="album.albumId==null" [kind]="'album'" [name]="album.albumName +' ' + album.albumPrice"
+                      (eventEmitter)="saveAlbum()"></app-save-modal>
+    </div>
+  </div>
+  <hr/>
+  <h3>
+    <span>{{'Albums.Details.SongsList' | translate}}</span>
+    <a href="songs/detail/{{song.songId}}" *ngFor="let song of songs, let lastSong = last">"{{song.songName}}"
+      <span *ngIf="!lastSong">,&nbsp;</span>
+      <span *ngIf="lastSong">.</span>
+    </a>
+  </h3>
+  <hr/>
+</div>
+
+<ng-template #notFound>
+  <h2>{{'Albums.NotFound' | translate}}</h2>
+</ng-template>
+<button class="btn btn-outline-secondary celLength" type="button" (click)="goBack()">
+  {{'Albums.Details.BtnBack' | translate}}
+</button>

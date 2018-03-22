@@ -1,0 +1,15 @@
+<hr/>
+<h2>
+  {{'Passports.Title' | translate}}
+  <a routerLink="/passports/detail/new" class="btn btn-outline-secondary" style="float: right;">
+    {{'Passports.NewPassport' | translate}}
+  </a>
+</h2>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-light" *ngFor="let passport of passports">
+    <span class="badge">{{passport.passportId}}&nbsp;:</span>&nbsp;&nbsp;
+    <a routerLink="/passports/detail/{{passport.passportId}}">
+      {{passport.passportNumber}}
+    </a>
+  </li>
+</ul>

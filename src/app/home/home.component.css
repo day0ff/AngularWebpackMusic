@@ -1,0 +1,46 @@
+a{
+  color: #607D8B;
+}
+a:hover{
+  color: #444444;
+}
+.col{
+  text-align: center;
+}
+.col a{
+  text-decoration: none;
+  color: white;
+}
+.col a:hover{
+  color: #BBD8DC;
+
+}
+.col h4{
+  height: 18vh;
+  line-height: 18vh;
+  vertical-align: center;
+  border-radius: 5px;
+  background-color: #607D8B;
+  overflow: hidden;
+}
+.note{
+  background: url('../../assets/images/note.png') center right no-repeat;
+
+  background-size: 16vh;
+}
+.disc{
+  background: url('../../assets/images/disc.png') center right no-repeat;
+  background-size: 16vh;
+}
+.micro{
+  background: url('../../assets/images/micro.png') center right no-repeat;
+  background-size: 16vh;
+}
+.headphones{
+  background: url('../../assets/images/headphones.png') center right no-repeat;
+  background-size: 16vh;
+}
+.wave{
+  background: url('../../assets/images/wave.png') center right no-repeat;
+  background-size: 16vh;
+}

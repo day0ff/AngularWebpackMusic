@@ -1,0 +1,15 @@
+li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+}
+a{
+  color: #607D8B;
+}
+a:hover{
+  color: #444444;
+}
+.badge {
+  font-size: larger;
+  font-weight: bolder;
+  color: #607D8B;
+}

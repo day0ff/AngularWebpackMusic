@@ -1,0 +1,12 @@
+h2 span{
+  font-size: smaller;
+  font-weight: lighter;
+  color:#888888;
+}
+.delete{
+  float: right;
+}
+.celLength{
+  width: 10vw;
+  overflow: hidden;
+}

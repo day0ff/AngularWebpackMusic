@@ -1,0 +1,16 @@
+<hr/>
+<h2>
+  {{'Songs.Title' | translate}}
+  <a routerLink="/songs/detail/new" class="btn btn-outline-secondary" style="float: right;">
+    {{'Songs.NewSong' | translate}}
+  </a>
+</h2>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-light" *ngFor="let song of songs">
+    <span class="badge">{{song.songId}}&nbsp;:</span>&nbsp;&nbsp;
+    <a routerLink="/songs/detail/{{song.songId}}">
+      {{song.songName}}
+    </a>
+  </li>
+</ul>
+

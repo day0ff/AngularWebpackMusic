@@ -1,0 +1,35 @@
+<hr/>
+<div *ngIf="passport; else notFound">
+  <h3 *ngIf="passport.passportId==null">{{'Passports.Details.CreateNewPassport' | translate}}</h3>
+  <h2>
+    <span>{{'Passports.Details.Passport' | translate}}&nbsp;:</span><br/>
+    {{passport.passportNumber}}&nbsp;
+    <span>{{'Passports.Details.Details' | translate}}</span>
+    <app-delete-modal *ngIf="passport.passportId!=null" [kind]="'passport'" [name]="passport.passportNumber"
+                      (eventEmitter)="deletePassport()" class="delete">
+    </app-delete-modal>
+  </h2>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">id :</span>
+    </div>
+    <input type="text" class="form-control" id="id" [(ngModel)]="passport.passportId" placeholder="id" disabled>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text celLength">{{'Passports.Details.Number' | translate}} :</span>
+    </div>
+    <input type="text" class="form-control" id="name" [(ngModel)]="passport.passportNumber" placeholder="number">
+    <div class="input-group-append">
+      <app-update-modal *ngIf="passport.passportId!=null" [kind]="'passport'" [name]="passport.passportNumber"
+                        (eventEmitter)="updatePassport()"></app-update-modal>
+      <app-save-modal *ngIf="passport.passportId==null" [kind]="'passport'" [name]="passport.passportNumber"
+                      (eventEmitter)="savePassport()"></app-save-modal>
+    </div>
+  </div>
+</div>
+<ng-template #notFound>
+  <h2>{{'Passports.NotFound' | translate}}</h2>
+</ng-template>
+<button class="btn btn-outline-secondary celLength" type="button" (click)="goBack()">
+  {{'Passports.Details.BtnBack' |  translate}}</button>

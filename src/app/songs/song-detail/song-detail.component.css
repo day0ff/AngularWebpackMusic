@@ -1,0 +1,19 @@
+h2 span, h3 span{
+  font-size: smaller;
+  font-weight: lighter;
+  color:#888888;
+}
+.delete{
+  float: right;
+}
+.celLength{
+  width: 10vw;
+  overflow: hidden;
+}
+h3 a{
+  color: #607D8B;
+}
+h3 a:hover{
+  color: #444444;
+  text-decoration: none;
+}
