@@ -13,7 +13,7 @@
     <h3><a class="nav-link" routerLink="/persons">{{'Home.Persons' | translate}}</a></h3>
     <div class="row">
       <div *ngFor="let person of persons" class="col">
-        <a routerLink="/passports/detail/{{person.personId}}">
+        <a routerLink="/persons/detail/{{person.personId}}">
           <h4 class="micro">{{person.firstName}}&nbsp;{{person.lastName}}</h4>
         </a>
       </div>
